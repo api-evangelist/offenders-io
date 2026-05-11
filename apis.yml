@@ -40,6 +40,10 @@ apis:
 common:
   - type: Website
     url: https://offenders.io/
+  - type: Integrations
+    url: https://offenders.io/integrations/
+integrations:
+  - name: Offenders.io
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
