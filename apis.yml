@@ -7,7 +7,7 @@ description: >-
   individuals who have been convicted of crimes. Offenders.io operates an industry-leading
   database of National Registered Sex Offenders for the United States, offering criteria-based
   search, facial recognition, and batch processing.
-type: Contract
+kind: contract
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
