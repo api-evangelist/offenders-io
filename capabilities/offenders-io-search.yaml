@@ -1,26 +1,23 @@
 naftiko: 1.0.0-alpha2
 info:
-  label: Offenders.io API
-  description: Industry-leading database of National Registered Sex Offenders for the United States. Supports criteria-based
-    search by name, date of birth, city, zip, state, and geospatial radius queries. Returns rich JSON records including identity,
-    photo, address, GPS coordinates, crimes, and risk level.
+  label: Offenders.io API — Search
+  description: 'Offenders.io API — Search. 1 operations. Lead operation: Search sex offender registry. Self-contained Naftiko
+    capability covering one Offenders Io business surface.'
   tags:
-  - Offenders
-  - Io
-  - API
-  created: '2026-05-06'
-  modified: '2026-05-06'
+  - Offenders Io
+  - Search
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OFFENDERS_IO_API_KEY: OFFENDERS_IO_API_KEY
 capability:
   consumes:
   - type: http
-    namespace: offenders-io
+    namespace: offenders-io-search
     baseUri: https://api.offenders.io
-    description: Offenders.io API HTTP API.
-    authentication:
-      type: apikey
-      in: query
-      name: key
-      value: '{{OFFENDERS_IO_TOKEN}}'
+    description: Offenders.io API — Search business capability. Self-contained, no shared references.
     resources:
     - name: sexoffender
       path: /sexoffender
@@ -28,6 +25,11 @@ capability:
       - name: searchsexoffenders
         method: GET
         description: Search sex offender registry
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
         inputParameters:
         - name: firstName
           in: query
@@ -60,42 +62,54 @@ capability:
         - name: key
           in: query
           type: string
-          required: true
           description: API key for authentication.
-        outputRawFormat: json
-        outputParameters:
-        - name: result
-          type: object
-          value: $.
+          required: true
+    authentication:
+      type: apikey
+      key: key
+      value: '{{env.OFFENDERS_IO_API_KEY}}'
+      placement: query
   exposes:
   - type: rest
+    namespace: offenders-io-search-rest
     port: 8080
-    namespace: offenders-io-rest
-    description: REST adapter for Offenders.io API.
+    description: REST adapter for Offenders.io API — Search. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
     resources:
-    - path: /sexoffender
-      name: searchsexoffenders
+    - path: /v1/sexoffender
+      name: sexoffender
+      description: REST surface for sexoffender.
       operations:
       - method: GET
         name: searchsexoffenders
         description: Search sex offender registry
-        call: offenders-io.searchsexoffenders
+        call: offenders-io-search.searchsexoffenders
+        with:
+          firstName: rest.firstName
+          lastName: rest.lastName
+          zipcode: rest.zipcode
+          lat: rest.lat
+          lng: rest.lng
+          radius: rest.radius
+          fuzzy: rest.fuzzy
+          key: rest.key
         outputParameters:
         - type: object
           mapping: $.
   - type: mcp
+    namespace: offenders-io-search-mcp
     port: 9090
-    namespace: offenders-io-mcp
     transport: http
-    description: MCP adapter for Offenders.io API for AI agent use.
+    description: MCP adapter for Offenders.io API — Search. One tool per consumed operation, routed inline through this capability's
+      consumes block.
     tools:
-    - name: searchsexoffenders
+    - name: search-sex-offender-registry
       description: Search sex offender registry
       hints:
         readOnly: true
         destructive: false
         idempotent: true
-      call: offenders-io.searchsexoffenders
+      call: offenders-io-search.searchsexoffenders
       with:
         firstName: tools.firstName
         lastName: tools.lastName
@@ -105,36 +119,6 @@ capability:
         radius: tools.radius
         fuzzy: tools.fuzzy
         key: tools.key
-      inputParameters:
-      - name: firstName
-        type: string
-        description: Offender first name (structured search).
-      - name: lastName
-        type: string
-        description: Offender last name (structured search).
-      - name: zipcode
-        type: string
-        description: ZIP code for location-based filtering.
-      - name: lat
-        type: number
-        description: Latitude for geospatial search.
-      - name: lng
-        type: number
-        description: Longitude for geospatial search.
-      - name: radius
-        type: number
-        description: Search radius in miles (used with lat/lng).
-      - name: fuzzy
-        type: boolean
-        description: Enable typo-tolerant fuzzy matching.
-      - name: key
-        type: string
-        description: API key for authentication.
-        required: true
       outputParameters:
       - type: object
         mapping: $.
-binds:
-- namespace: env
-  keys:
-    OFFENDERS_IO_TOKEN: OFFENDERS_IO_TOKEN
