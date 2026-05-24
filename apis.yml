@@ -39,6 +39,8 @@ common:
   url: https://offenders.io/
 - type: Integrations
   url: https://offenders.io/integrations/
+- type: LLMsTxt
+  url: https://offenders.io/llms.txt
 integrations:
 - name: Offenders.io
 maintainers:
