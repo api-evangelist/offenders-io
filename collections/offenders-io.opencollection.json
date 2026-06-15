@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Offenders.io API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "key",
+      "value": "{{key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search sex offender registry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.offenders.io/sexoffender",
+            "params": [
+              {
+                "name": "firstName",
+                "value": "",
+                "type": "query",
+                "description": "Offender first name (structured search)."
+              },
+              {
+                "name": "lastName",
+                "value": "",
+                "type": "query",
+                "description": "Offender last name (structured search)."
+              },
+              {
+                "name": "zipcode",
+                "value": "",
+                "type": "query",
+                "description": "ZIP code for location-based filtering."
+              },
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude for geospatial search."
+              },
+              {
+                "name": "lng",
+                "value": "",
+                "type": "query",
+                "description": "Longitude for geospatial search."
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "Search radius in miles (used with lat/lng)."
+              },
+              {
+                "name": "fuzzy",
+                "value": "",
+                "type": "query",
+                "description": "Enable typo-tolerant fuzzy matching."
+              },
+              {
+                "name": "key",
+                "value": "",
+                "type": "query",
+                "description": "API key for authentication."
+              }
+            ]
+          },
+          "docs": "Search the national sex offender registry by name, location, or coordinates. Returns matching offender records with identity, address, crimes, and risk level information."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
