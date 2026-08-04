@@ -1,0 +1,14 @@
+{
+  "provider": "offenders-io",
+  "sources": [
+    "offenders-io-search-api-openapi.yml"
+  ],
+  "outputs": [
+    "offenders-io-search-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
