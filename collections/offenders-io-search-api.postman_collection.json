@@ -1,0 +1,337 @@
+{
+  "item": [
+    {
+      "id": "61a0d014-3ed0-4313-8349-abbf13d1ed5a",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cd5f1f0f-c50d-4f09-858b-f9cbbf910507",
+          "name": "Search sex offender registry",
+          "request": {
+            "name": "Search sex offender registry",
+            "description": {
+              "content": "Search the national sex offender registry by name, location, or coordinates. Returns matching offender records with identity, address, crimes, and risk level information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sexoffender"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "firstName",
+                  "value": "<string>",
+                  "description": "Offender first name (structured search)."
+                },
+                {
+                  "disabled": false,
+                  "key": "lastName",
+                  "value": "<string>",
+                  "description": "Offender last name (structured search)."
+                },
+                {
+                  "disabled": false,
+                  "key": "zipcode",
+                  "value": "<string>",
+                  "description": "ZIP code for location-based filtering."
+                },
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<double>",
+                  "description": "Latitude for geospatial search."
+                },
+                {
+                  "disabled": false,
+                  "key": "lng",
+                  "value": "<double>",
+                  "description": "Longitude for geospatial search."
+                },
+                {
+                  "disabled": false,
+                  "key": "radius",
+                  "value": "<double>",
+                  "description": "Search radius in miles (used with lat/lng)."
+                },
+                {
+                  "disabled": false,
+                  "key": "fuzzy",
+                  "value": "false",
+                  "description": "Enable typo-tolerant fuzzy matching."
+                },
+                {
+                  "disabled": false,
+                  "key": "key",
+                  "value": "<string>",
+                  "description": "(Required) API key for authentication."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d5fb694-d3e3-45d6-bb3e-65541dec7175",
+              "name": "Matching offender records.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sexoffender"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "firstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "zipcode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "fuzzy",
+                      "value": "false"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"photo\": \"http://IDZMoOFFnYrXdU.zoscbs6ybnz,cKRV9+LcgGzAg,blfUUlG22oDJdK-+oI4yMNGDXkO5s2oO\",\n    \"address\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zipcode\": \"string\",\n    \"lat\": 6127.536320444387,\n    \"lng\": 5877.0770915109915,\n    \"riskLevel\": \"string\",\n    \"stateData\": {\n      \"offenses\": [\n        {\n          \"description\": \"string\",\n          \"convictionDate\": \"1982-09-26\",\n          \"statuteCode\": \"string\",\n          \"victimAge\": 1745\n        },\n        {\n          \"description\": \"string\",\n          \"convictionDate\": \"2021-11-06\",\n          \"statuteCode\": \"string\",\n          \"victimAge\": 1341\n        }\n      ]\n    }\n  },\n  {\n    \"id\": \"string\",\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"photo\": \"https://vbqKvVHdqfquuSuHaEKdzWNw.aaqsE+Qv1nnUvRMHfcpkeSjQWMWJZMEL4Iqc7fpOflNboaPeliJydYDtwDaJwrmDeK4F\",\n    \"address\": \"string\",\n    \"city\": \"string\",\n    \"state\": \"string\",\n    \"zipcode\": \"string\",\n    \"lat\": 8443.20914425109,\n    \"lng\": 6947.065050840142,\n    \"riskLevel\": \"string\",\n    \"stateData\": {\n      \"offenses\": [\n        {\n          \"description\": \"string\",\n          \"convictionDate\": \"1948-09-15\",\n          \"statuteCode\": \"string\",\n          \"victimAge\": 243\n        },\n        {\n          \"description\": \"string\",\n          \"convictionDate\": \"2021-10-11\",\n          \"statuteCode\": \"string\",\n          \"victimAge\": 8027\n        }\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d5a18b00-a0e0-4224-996c-97282165842c",
+              "name": "Invalid query parameters.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sexoffender"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "firstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "zipcode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "fuzzy",
+                      "value": "false"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e1db1ab9-e9f4-4ee0-b76f-493e2f6a180c",
+              "name": "Missing or invalid API key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sexoffender"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "firstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "zipcode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lng",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "fuzzy",
+                      "value": "false"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.offenders.io",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c6c0c743-d299-495a-abee-0b01256c0d14",
+    "name": "Offenders.io Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Industry-leading database of National Registered Sex Offenders for the United States. Supports criteria-based search by name, date of birth, city, zip, state, and geospatial radius queries. Returns rich JSON records including identity, photo, address, GPS coordinates, crimes, and risk level.\n\nContact Support:\n Name: Offenders.io",
+      "type": "text/plain"
+    }
+  }
+}

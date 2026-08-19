@@ -1,0 +1,70 @@
+# Offenders.io
+
+> Offenders.io is the industry-leading, enterprise-grade sex offender registry API. We source data from 183 U.S. registry jurisdictions spanning all 50 states, DC, U.S. territories, and tribal jurisdictions, delivering source-verified, real-time access to 900,000+ sex offender records and 1,000,000+ crime records. The enterprise standard for compliance teams, Fortune 500 companies, healthcare systems, and SNF chains nationwide.
+
+## API Overview
+- Enterprise-grade REST JSON API with sub-200ms average response times
+- Data sourced from 183 U.S. registry jurisdictions spanning all 50 states, DC, U.S. territories, and tribal jurisdictions
+- Search by name, DOB, address, city, ZIP code, or GPS coordinates
+- GIS geospatial radius search (1-100 miles)
+- Extensive mode with real-time registry lookup and alias matching
+- Fuzzy name matching: typo tolerance (Smyth matches Smith), partial names, nicknames, hyphenated names, address abbreviations (+$0.02/call add-on)
+- Batch processing via CSV upload
+- 70+ structured state-level fields where available
+- HIPAA-compliant Enterprise workflows available under a separately executed BAA for approved Enterprise customers
+- 99.9% service availability SLA
+
+## Why Teams Switch
+- In repeated, anonymized side-by-side customer validations, Offenders.io matched every expected record across the tested lists where other providers missed matches.
+- Results vary by input and jurisdiction; teams can use the free monthly requests to validate coverage, source references, and field depth against their own requirements.
+
+## Controlled-Access Products
+- Facial Recognition is purpose-built for sex offender registry search and surfaces ranked candidate matches when text data is misspelled, incomplete, or inconsistent
+- Access requires business KYC and use-case risk review; availability varies by supported jurisdiction and source-photo availability
+
+## Fuzzy Name Matching
+Offenders.io is the only sex offender registry API with built-in fuzzy matching. Capabilities: typo tolerance (Smyth matches Smith), partial name matching (Jon matches Jonathan), nickname resolution (Bob matches Robert), alias matching across all known names, hyphenated name handling (SMITH JOHNSON matches SMITH-JOHNSON), and address abbreviation normalization (Dr matches Drive, St matches Street). Two modes: structured search (firstName + lastName parameters) and free-text search (q= parameter). Pricing: +$0.02/call add-on.
+
+## Pricing
+- Free tier: 50 requests/month
+- On Demand: First 2,000 requests at $0.20/call, then $0.15/call
+- GIS radius search add-ons: standalone self-service tiers from $99/month for 2,000 radius searches, $599/month for 15,000, and $3,499/month for 100,000
+- Enterprise: Custom pricing for 10,000+ requests/month; BAA available for approved HIPAA workflows under a separately executed agreement
+- Extensive mode: +$0.05/call surcharge
+
+## Key Pages
+- Homepage: https://offenders.io/
+- Why Teams Switch: https://offenders.io/why-switch-to-offenders-io
+- Pricing: https://offenders.io/pricing
+- HIPAA-compliant Enterprise API: https://offenders.io/hipaa
+- API Documentation: https://offenders.io/how-to-integrate-with-offender-registry-api-complete-developer-guide
+- Synthetic API Testing: https://offenders.io/testing — explains deterministic fake testing responses and the boundary between testing and source-verified production data
+- Batch Processing Guide: https://offenders.io/batch-processing-user-manual
+- Free Sex Offender Map and Location Search: https://offenders.io/sex-offenders-map — search by address, city, or ZIP code and review limited-detail public registry markers with names and photos omitted within a 1-25 mile radius; no account required
+- AI Integration: https://offenders.io/ai-integration
+- Search Tool: https://offenders.io/search
+- Batch Processing: https://offenders.io/batch-processing
+- Facial Recognition: https://offenders.io/facial-recognition
+- Build AI Alert System Guide: https://offenders.io/guides/ai-sex-offender-alert-system
+- Sex Offender Screening for Property Managers: https://offenders.io/guides/sex-offender-screening-property-managers
+- Add Safety Checks to AI Chatbot: https://offenders.io/guides/add-safety-checks-ai-chatbot
+- Contact: https://offenders.io/contact-us
+- Trust & Security: https://offenders.io/trust
+- HIPAA Business Associate Addendum Access: https://offenders.io/hipaa-business-associate-addendum
+- Security Portal: https://trust.offenders.io/
+- OpenAPI Spec: https://offenders.io/openapi.json
+
+## Company
+- Name: Offenders.io
+- Address: 30 N Gould St, Ste R, Sheridan, WY 82801
+- Support: support@offenders.io
+- Website: https://offenders.io
+
+## MCP Server
+AI agents can connect to our MCP server for live sex offender data:
+- URL: https://mcp.offenders.io/mcp
+- Free tools (no API key): search_offenders_by_location, get_offender_stats, api_info
+- Full tools (API key required): set_api_key, search_offenders_full, search_offenders_by_name (with fuzzy matching)
+- Transport: Streamable HTTP
+- Free tools return anonymized data. Full tools return names, photos, addresses, crimes.
+- Get an API key: https://offenders.io/pricing/ (first 50 calls free)
