@@ -1,0 +1,32 @@
+generated: '2026-09-11'
+method: probed
+source: https://mcp.offenders.io/mcp
+status: published
+server:
+  name: offenders-io
+  transport: http
+  url: https://mcp.offenders.io/mcp
+deployment:
+  mode: remote
+  endpoint: https://mcp.offenders.io/mcp
+  verified: probed
+  probe: live
+  checked: '2026-09-11'
+  source: docs-check 2026-09-11 (endpoint found in the provider's own documentation, then probed)
+  probe_why: docs-check
+tools_count: 6
+tools:
+- name: search_offenders_by_location
+  description: ''
+- name: get_offender_stats
+  description: ''
+- name: set_api_key
+  description: ''
+- name: search_offenders_full
+  description: ''
+- name: search_offenders_by_name
+  description: ''
+- name: api_info
+  description: ''
+tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
+authorship: provider
