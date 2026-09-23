@@ -1,0 +1,34 @@
+# Front Door AI Index — offenders-io — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: offenders-io
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: offenders.io
+  final_host: offenders.io
+  ownership: own
+  owner: offenders-io
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 30
+  host_score: 30
+  density: 12.99
+  words: 2310
+  tiers:
+    agentic: 16
+    core: 12
+    model: 2
+  ambiguous: 2
+  top_terms:
+    AI: 11
+    MCP: 9
+    AI agent: 2
+    Claude: 2
+    agent: 2
+    chatbot: 2
+    LLMs: 1
+    RAG: 1
+    agentic: 1
+    model context protocol: 1

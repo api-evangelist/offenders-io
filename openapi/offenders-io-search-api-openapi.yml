@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Offenders.io Search API
   description: Industry-leading database of National Registered Sex Offenders for the United States. Supports criteria-based search by name, date of birth, city, zip, state, and geospatial radius queries. Returns rich JSON records including identity, photo, address, GPS coordinates, crimes, and risk level.
