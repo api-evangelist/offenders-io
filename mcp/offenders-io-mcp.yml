@@ -17,16 +17,25 @@ deployment:
 tools_count: 6
 tools:
 - name: search_offenders_by_location
-  description: ''
+  description: Search for registered sex offenders near a location. Returns ANONYMIZED data only (no names/photos).
+    For full records, set your API key with set_api_key and use search_offenders_full instead.
 - name: get_offender_stats
-  description: ''
+  description: Get a count of registered sex offenders near a location. For detailed records, use search_offenders_full
+    with an API key.
 - name: set_api_key
-  description: ''
+  description: Set your Offenders.io API key to unlock full search results with names, photos, and addresses.
+    Get a key at https://offenders.io/pricing/ (first 50 calls free).
 - name: search_offenders_full
-  description: ''
+  description: Search for sex offenders by location with FULL records including names, photos, addresses,
+    and criminal details. Returns ALL offenders near the coordinates. To filter by name at a location,
+    use search_offenders_by_name with lat/lng instead.
 - name: search_offenders_by_name
-  description: ''
+  description: Search for sex offenders by name, DOB, city, state, zip code, OR coordinates. Combine name
+    filters with location (lat/lng or city/state/zip) to narrow results — e.g. find 'Smith' near specific
+    coordinates. Returns full records. Requires an
 - name: api_info
-  description: ''
+  description: Get information about the Offenders.io API, pricing, and capabilities.
 tools_source: live tools/list via initialize handshake, 2026-09-11 (signals/audit_mcp_authorship.py --probe)
 authorship: provider
+descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
+  --descriptions, 2026-09-28
