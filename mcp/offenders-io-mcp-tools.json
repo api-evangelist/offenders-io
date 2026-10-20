@@ -1,0 +1,221 @@
+{
+  "endpoint": "https://mcp.offenders.io/mcp",
+  "captured": "2026-10-20",
+  "method": "initialize + tools/list (anonymous, no tool called; roadmap#992)",
+  "protocol_version": "2025-06-18",
+  "server_info": {
+    "name": "Offenders.io",
+    "version": "2.0.0"
+  },
+  "result": {
+    "tools": [
+      {
+        "name": "search_offenders_by_location",
+        "description": "Search for registered sex offenders near a location. Returns ANONYMIZED data only (no names/photos). For full records, set your API key with set_api_key and use search_offenders_full instead.",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "lat": {
+              "type": "number",
+              "description": "Latitude"
+            },
+            "lng": {
+              "type": "number",
+              "description": "Longitude"
+            },
+            "radius": {
+              "default": 1,
+              "description": "Radius in miles (default 1)",
+              "type": "number"
+            }
+          },
+          "required": [
+            "lat",
+            "lng"
+          ]
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "get_offender_stats",
+        "description": "Get a count of registered sex offenders near a location. For detailed records, use search_offenders_full with an API key.",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "lat": {
+              "type": "number",
+              "description": "Latitude"
+            },
+            "lng": {
+              "type": "number",
+              "description": "Longitude"
+            },
+            "radius": {
+              "default": 1,
+              "description": "Radius in miles",
+              "type": "number"
+            }
+          },
+          "required": [
+            "lat",
+            "lng"
+          ]
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "set_api_key",
+        "description": "Set your Offenders.io API key to unlock full search results with names, photos, and addresses. Get a key at https://offenders.io/pricing/ (first 50 calls free).",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "description": "Your Offenders.io API key"
+            }
+          },
+          "required": [
+            "key"
+          ]
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "search_offenders_full",
+        "description": "Search for sex offenders by location with FULL records including names, photos, addresses, and criminal details. Returns ALL offenders near the coordinates. To filter by name at a location, use search_offenders_by_name with lat/lng instead. Requires an API key — get one at https://offenders.io/pricing/",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "api_key": {
+              "type": "string",
+              "description": "Your Offenders.io API key"
+            },
+            "lat": {
+              "type": "number",
+              "description": "Latitude"
+            },
+            "lng": {
+              "type": "number",
+              "description": "Longitude"
+            },
+            "radius": {
+              "default": 1,
+              "description": "Radius in miles (1-100)",
+              "type": "number"
+            },
+            "page": {
+              "default": 1,
+              "description": "Page number for pagination",
+              "type": "number"
+            }
+          },
+          "required": [
+            "api_key",
+            "lat",
+            "lng"
+          ]
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "search_offenders_by_name",
+        "description": "Search for sex offenders by name, DOB, city, state, zip code, OR coordinates. Combine name filters with location (lat/lng or city/state/zip) to narrow results — e.g. find 'Smith' near specific coordinates. Returns full records. Requires an API key.",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "api_key": {
+              "type": "string",
+              "description": "Your Offenders.io API key"
+            },
+            "firstName": {
+              "description": "First name",
+              "type": "string"
+            },
+            "lastName": {
+              "description": "Last name",
+              "type": "string"
+            },
+            "dob": {
+              "description": "Date of birth (YYYY-MM-DD)",
+              "type": "string"
+            },
+            "lat": {
+              "description": "Latitude — combine with lng and radius to filter by location",
+              "type": "number"
+            },
+            "lng": {
+              "description": "Longitude — combine with lat and radius to filter by location",
+              "type": "number"
+            },
+            "radius": {
+              "description": "Radius in miles (use with lat/lng)",
+              "type": "number"
+            },
+            "city": {
+              "description": "City",
+              "type": "string"
+            },
+            "state": {
+              "description": "State (full name, e.g. California)",
+              "type": "string"
+            },
+            "zipcode": {
+              "description": "ZIP code",
+              "type": "string"
+            },
+            "mode": {
+              "default": "standard",
+              "description": "'extensive' enables alias matching (+$0.05/call)",
+              "type": "string",
+              "enum": [
+                "standard",
+                "extensive"
+              ]
+            },
+            "fuzzy": {
+              "default": true,
+              "description": "Enable fuzzy matching for misspelled or partial names (default: true)",
+              "type": "boolean"
+            },
+            "page": {
+              "default": 1,
+              "description": "Page number",
+              "type": "number"
+            }
+          },
+          "required": [
+            "api_key"
+          ]
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      },
+      {
+        "name": "api_info",
+        "description": "Get information about the Offenders.io API, pricing, and capabilities.",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "execution": {
+          "taskSupport": "forbidden"
+        }
+      }
+    ]
+  }
+}
